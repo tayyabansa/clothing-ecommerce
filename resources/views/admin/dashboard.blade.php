@@ -159,7 +159,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $product->category }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $product->category->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${{ number_format($product->price, 2) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $product->units_sold }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${{ number_format($product->revenue, 2) }}</td>
