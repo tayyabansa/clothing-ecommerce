@@ -45,15 +45,17 @@ class CheckoutController extends Controller
 
             // Create line items for Stripe
             $lineItems = [];
+            
             foreach($cart as $id => $item) {
+                
                 $lineItems[] = [
                     'price_data' => [
                         'currency' => 'usd',
                         'product_data' => [
                             'name' => $item['name'],
-                            'images' => [$item['image']],
+                            'images' => [asset( ltrim($item['image'], '/'))],
                         ],
-                        'unit_amount' => $item['price'] * 100, // Convert to cents
+                        'unit_amount' => intval($item['price'] * 100),
                     ],
                     'quantity' => $item['quantity'],
                 ];
@@ -79,7 +81,8 @@ class CheckoutController extends Controller
             return redirect($session->url);
 
         } catch (\Exception $e) {
-            return back()->with('error', 'An error occurred while processing your payment. Please try again.');
+            dd($e->getMessage());
+            // return back()->with('error', 'An error occurred while processing your payment. Please try again.');
         }
     }
 

@@ -10,6 +10,12 @@
                 <p class="mt-2 text-lg text-gray-600">Complete your purchase</p>
             </div>
 
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
                 <!-- Order Summary Section -->
                 <div class="p-8 border-b border-gray-200 bg-gradient-to-r from-indigo-50 to-blue-50">
